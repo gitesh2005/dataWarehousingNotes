@@ -1,670 +1,94 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Warehousing: A Comprehensive Notes Collection</title>
+    <title>Educational Hub - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* slate-100 */
         }
-        .note-section {
-            break-inside: avoid;
+        .topic-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0; /* slate-200 */
+        }
+        .topic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-slate-800">
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <!-- Main Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Data Warehousing: A Comprehensive Notes Collection</h1>
-            <p class="mt-4 text-lg text-gray-600">Your complete guide to Data Warehousing concepts, from architecture to OLAP.</p>
-        </header>
-
-        <!-- Table of Contents -->
-        <nav class="bg-white p-6 rounded-2xl shadow-sm mb-12 sticky top-4 z-10 border border-gray-200">
-            <h2 class="text-2xl font-bold mb-4 text-gray-900">Table of Contents</h2>
-            <div class="columns-2 sm:columns-3 md:columns-4 gap-4">
-                <ul class="space-y-2">
-                    <li><a href="#s1" class="text-blue-600 hover:underline font-medium">1. Introduction</a></li>
-                    <li><a href="#s2" class="text-blue-600 hover:underline font-medium">2. Planning & Project Mgmt</a></li>
-                    <li><a href="#s3" class="text-blue-600 hover:underline font-medium">3. Architecture</a></li>
-                    <li><a href="#s4" class="text-blue-600 hover:underline font-medium">4. ETL</a></li>
-                    <li><a href="#s5" class="text-blue-600 hover:underline font-medium">5. Data Lakes</a></li>
-                    <li><a href="#s6" class="text-blue-600 hover:underline font-medium">6. Schemas</a></li>
-                    <li><a href="#s7" class="text-blue-600 hover:underline font-medium">7. OLAP</a></li>
-                </ul>
-            </div>
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <h1 class="text-2xl font-bold text-slate-900">My Educational Hub</h1>
         </nav>
+    </header>
 
-        <!-- Main Content Grid -->
-        <main class="space-y-12">
-            
-            <!-- Section 1: Introduction -->
-            <section id="s1" class="scroll-mt-24">
-                <h2 class="text-3xl font-bold mb-6 pb-2 border-b border-gray-300 text-gray-900">1. Introduction to Data Warehousing</h2>
-                <div class="space-y-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">1.1. 📦 What Is a Data Warehouse?</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                            <li>A data warehouse is a large <strong>centralized repository</strong> that stores data collected from various internal and external sources.</li>
-                            <li>It is primarily used to <strong>analyze data</strong> and support business decision-making rather than handle daily transactions.</li>
-                            <li>Data stored in a warehouse is structured, cleaned, and transformed to ensure <strong>consistency and accuracy</strong>.</li>
-                            <li>It acts as a <strong>single source of truth</strong> for an organization, making information easily accessible to decision-makers.</li>
-                            <li>Data warehouses store <strong>historical data</strong>, enabling analysis of trends, patterns, and long-term changes.</li>
-                            <li>They support <strong>complex queries and reports</strong>, which might be slow or difficult on operational systems.</li>
-                            <li>Data is often loaded into the warehouse using <strong>ETL (Extract, Transform, Load)</strong> processes.</li>
-                            <li>A warehouse is usually <strong>separated from operational databases</strong> to avoid performance issues on live systems.</li>
-                            <li>It allows organizations to combine data from multiple departments like sales, finance, and marketing.</li>
-                            <li>Overall, a data warehouse helps organizations gain insights and make <strong>strategic, data-driven decisions</strong>.</li>
-                        </ol>
-                    </div>
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">1.2. 🎯 Role and Purpose of the Data Warehouse</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                            <li>The main role of a data warehouse is to support <strong>decision-making</strong> by providing reliable, consolidated data.</li>
-                            <li>It <strong>integrates data</strong> from multiple operational systems into one unified platform.</li>
-                            <li>Data warehouses store <strong>historical data</strong>, allowing organizations to analyze changes over time.</li>
-                            <li>They provide a <strong>consistent format and structure</strong>, removing duplication and conflicts between data sources.</li>
-                            <li>Data warehouses are used to generate reports, dashboards, and <strong>business intelligence (BI)</strong> insights.</li>
-                            <li>They help in identifying <strong>trends, patterns, and anomalies</strong> that support strategic planning.</li>
-                            <li>The warehouse acts as a foundation for <strong>data mining</strong> and advanced analytics.</li>
-                            <li>It allows <strong>faster and more efficient query performance</strong> than operational systems.</li>
-                            <li>The purpose is to enable top management to make <strong>informed and data-driven decisions</strong>.</li>
-                            <li>Overall, a data warehouse serves as the central hub for all <strong>analytical and business reporting</strong> activities.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">1.3. 🧩 The Multipurpose Nature of the Data Warehouse</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A data warehouse serves <strong>multiple purposes</strong> across different departments and business units.</li>
-                           <li>It supports <strong>strategic decision-making</strong> by providing accurate and comprehensive data analysis.</li>
-                           <li>It helps <strong>operational managers</strong> monitor performance and improve daily processes.</li>
-                           <li>Data warehouses are used for <strong>trend analysis, forecasting, and long-term planning</strong>.</li>
-                           <li>They provide a single data source for creating dashboards, KPIs, and performance reports.</li>
-                           <li>They enable <strong>data mining and advanced analytics</strong> to discover hidden patterns and customer behavior.</li>
-                           <li>They support <strong>compliance and auditing</strong> by keeping a secure record of historical data.</li>
-                           <li>Different users like analysts, managers, and executives can access and analyze data based on their needs.</li>
-                           <li>A data warehouse can integrate data from various domains like sales, finance, marketing, and HR.</li>
-                           <li>This multipurpose nature makes the data warehouse a <strong>core component</strong> of enterprise information systems.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">1.4. ⚙️ Characteristics of a Maintainable Data Warehouse</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A maintainable data warehouse is <strong>easy to update, manage, and improve</strong> over time.</li>
-                           <li>It should have a <strong>modular and scalable design</strong> so new data sources or modules can be added easily.</li>
-                           <li>The system must ensure <strong>data consistency and integrity</strong> even as data volumes grow.</li>
-                           <li>It should provide <strong>clear documentation</strong> of data models, ETL processes, and architecture.</li>
-                           <li>A maintainable warehouse supports <strong>automated monitoring and error handling</strong> to reduce manual work.</li>
-                           <li>It must be <strong>flexible</strong> to adapt to changing business requirements and technologies.</li>
-                           <li>The system should allow easy <strong>data backup, recovery, and version control</strong> for reliability.</li>
-                           <li>It should have efficient <strong>performance tuning and optimization</strong> to handle increasing workloads.</li>
-                           <li>Maintenance should require <strong>minimal downtime</strong> to avoid disrupting business operations.</li>
-                           <li>Overall, maintainability ensures the data warehouse remains accurate, reliable, and <strong>cost-effective</strong> in the long run.</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section text-white py-20 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="text-5xl font-extrabold mb-4">Welcome to Your Learning Space</h2>
+                <p class="text-xl max-w-3xl mx-auto text-indigo-100">
+                    A centralized place for all educational notes and practice questions. Study, revise, and test your knowledge from anywhere.
+                </p>
+            </div>
+        </section>
 
-            <!-- Section 2: Planning & Project Management -->
-            <section id="s2" class="scroll-mt-24">
-                <h2 class="text-3xl font-bold mb-6 pb-2 border-b border-gray-300 text-gray-900">2. Planning & Project Management</h2>
-                <div class="space-y-8">
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">2.1. 📝 Planning Data Warehouse and Key Issues</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Planning</strong> is the first and most critical phase in building a data warehouse.</li>
-                           <li>It involves defining the <strong>goals and objectives</strong> the data warehouse should achieve.</li>
-                           <li>The process requires understanding the <strong>business needs and user requirements</strong> clearly.</li>
-                           <li>A detailed plan helps <strong>align technical design with organizational goals</strong>.</li>
-                           <li>It includes deciding on data sources, data volume, and data refresh frequency.</li>
-                           <li>Key issues involve <strong>data quality, consistency, and integration challenges</strong>.</li>
-                           <li>It is important to consider scalability, security, and performance requirements early.</li>
-                           <li><strong>Stakeholder involvement</strong> is crucial to ensure user acceptance and correct functionality.</li>
-                           <li>Budgeting, scheduling, and resource allocation must be planned carefully.</li>
-                           <li>Proper planning <strong>minimizes risks</strong> and ensures the successful implementation of the data warehouse.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">2.2. 📋 Planning and Project Management in Construction</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Project management</strong> ensures the data warehouse is built on time, within budget, and meets objectives.</li>
-                           <li>It starts with defining project <strong>scope, goals, and success criteria</strong> clearly.</li>
-                           <li>A project plan with phases, milestones, and deliverables is created to track progress.</li>
-                           <li><strong>Resource allocation</strong> is done by assigning skilled personnel, tools, and technologies.</li>
-                           <li><strong>Risk management</strong> strategies are included to handle potential delays or technical issues.</li>
-                           <li>Regular communication and coordination among stakeholders keeps the project aligned.</li>
-                           <li>Time management and scheduling are used to monitor deadlines and avoid delays.</li>
-                           <li>Project managers ensure <strong>quality control and testing</strong> at each phase of development.</li>
-                           <li><strong>Change management</strong> processes handle new requirements without disrupting the plan.</li>
-                           <li>Effective planning and project management lead to a well-organized, successful implementation.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">2.3. 🔄 Data Warehouse Development Life Cycle</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>The Data Warehouse Development Life Cycle defines the <strong>step-by-step process</strong> of building a data warehouse.</li>
-                           <li>It starts with the <strong>requirements gathering</strong> phase to understand business goals and user needs.</li>
-                           <li>The next step is <strong>designing the architecture</strong>, including data models, ETL processes, and storage structures.</li>
-                           <li>Data <strong>extraction, transformation, and loading (ETL)</strong> processes are then developed.</li>
-                           <li>After ETL, the data warehouse is <strong>built and populated</strong> with initial data for testing.</li>
-                           <li>The <strong>testing phase</strong> checks data quality, accuracy, performance, and security of the system.</li>
-                           <li>Once tested, the warehouse is <strong>deployed</strong> into the production environment for real use.</li>
-                           <li><strong>User training and documentation</strong> are provided to help employees use the system effectively.</li>
-                           <li>A <strong>maintenance and enhancement</strong> phase follows to handle new data sources, changes, or issues.</li>
-                           <li>This life cycle ensures the warehouse is developed systematically and remains aligned with business needs.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">2.4. 📊 Kimball Lifecycle Diagram</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>The <strong>Kimball Lifecycle</strong> is a popular methodology for developing data warehouses in a structured way.</li>
-                           <li>It provides a <strong>step-by-step framework</strong> from project planning to deployment and maintenance.</li>
-                           <li>The lifecycle starts with <strong>project planning and requirement gathering</strong> from business users.</li>
-                           <li>Then comes <strong>business process modeling</strong> to define the key business operations to be analyzed.</li>
-                           <li>It involves designing the <strong>dimensional data model</strong> (star/snowflake schema) for reporting.</li>
-                           <li>The <strong>ETL system</strong> is designed and built to extract, transform, and load data into the warehouse.</li>
-                           <li>The data is then <strong>deployed</strong> into the data warehouse and made available for analysis.</li>
-                           <li><strong>BI tools and reports</strong> are developed to allow users to access and analyze the data.</li>
-                           <li>After deployment, the system goes into operations, maintenance, and continuous enhancement.</li>
-                           <li>The Kimball Lifecycle helps ensure <strong>iterative development, user involvement, and faster delivery</strong> of value.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">2.5. 🛠️ Requirements Gathering: Team, Roles, and Responsibilities</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Requirements gathering</strong> is the process of understanding what the business needs from a data warehouse.</li>
-                           <li>It ensures that the warehouse supports decision-making and provides relevant insights.</li>
-                           <li><strong>Team organization</strong> defines how different members collaborate to collect and analyze requirements.</li>
-                           <li>Common roles include <strong>Project Manager, Business Analyst, Data Architect, ETL Developer, and QA Analyst</strong>.</li>
-                           <li>The <strong>Project Manager</strong> oversees planning, schedules, and resource allocation.</li>
-                           <li><strong>Business Analysts</strong> interact with stakeholders to capture business needs and functional requirements.</li>
-                           <li><strong>Data Architects</strong> design the warehouse structure, including schemas and integration points.</li>
-                           <li><strong>ETL Developers</strong> handle data extraction, transformation, and loading according to requirements.</li>
-                           <li><strong>QA Analysts</strong> ensure the data and processes meet quality and accuracy standards.</li>
-                           <li>Clear roles and responsibilities enhance collaboration and ensure the warehouse meets business objectives.</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Section 3: Architecture -->
-            <section id="s3" class="scroll-mt-24">
-                <h2 class="text-3xl font-bold mb-6 pb-2 border-b border-gray-300 text-gray-900">3. Data Warehouse Architecture</h2>
-                <div class="space-y-8">
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">3.1. 🏗️ Introduction and Components of Architecture</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>Data warehouse architecture defines how <strong>data flows</strong> from sources to storage and finally to users for analysis.</li>
-                           <li>It provides a structured framework for <strong>integrating, storing, and accessing</strong> large amounts of data.</li>
-                           <li>The architecture ensures efficient querying, reporting, and business intelligence activities.</li>
-                           <li>A typical architecture includes <strong>data sources, ETL processes, data storage, metadata, and access tools</strong>.</li>
-                           <li><strong>Data sources</strong> are operational databases, flat files, and external systems that provide raw data.</li>
-                           <li><strong>ETL (Extract, Transform, Load)</strong> processes clean, transform, and load data into the warehouse.</li>
-                           <li><strong>Data storage</strong> includes fact tables, dimension tables, and possibly a staging area for raw data.</li>
-                           <li><strong>Metadata</strong> provides information about data definitions, formats, and lineage.</li>
-                           <li><strong>Access tools</strong> include reporting tools, dashboards, and BI applications for end-users.</li>
-                           <li>A well-designed architecture ensures data consistency, scalability, and optimized performance.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">3.2. 🖥️ Technical Architectures</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Technical architecture</strong> defines the hardware, software, and network setup for a data warehouse.</li>
-                           <li>It focuses on how data is <strong>stored, processed, and accessed</strong> efficiently.</li>
-                           <li>Key components include servers, databases, ETL tools, BI tools, and network infrastructure.</li>
-                           <li>Architectures are broadly classified into <strong>Single-tier, Two-tier, and Three-tier</strong>.</li>
-                           <li><strong>Single-tier architecture</strong> minimizes data redundancy but is rarely used due to limited scalability.</li>
-                           <li><strong>Two-tier architecture</strong> separates data storage from the client layer, improving performance for small systems.</li>
-                           <li><strong>Three-tier architecture</strong> is the most common, including bottom (data), middle (ETL/storage), and top (presentation) layers.</li>
-                           <li>The architecture must support large-scale data processing, concurrency, and quick query response.</li>
-                           <li>Security, backup, and disaster recovery mechanisms are integral parts of technical architecture.</li>
-                           <li>A robust technical architecture ensures the warehouse is <strong>reliable, scalable, and capable</strong>.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">3.3. 🏗️ Federated Data Warehouse Architecture</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>Data warehouse architectures define the structure, layers, and flow of data from sources to end-users.</li>
-                           <li>Common types include <strong>Single-tier, Two-tier, Three-tier, and Federated</strong> architectures.</li>
-                           <li><strong>Single-tier</strong> aims to minimize data redundancy but lacks scalability.</li>
-                           <li><strong>Two-tier</strong> separates data storage from the client layer, improving performance for smaller setups.</li>
-                           <li><strong>Three-tier</strong> is the most widely used, comprising data source, storage/ETL, and presentation layers.</li>
-                           <li><strong>Federated Data Warehouse Architecture</strong> integrates multiple, distributed warehouses into a virtual system.</li>
-                           <li>It allows organizations to query data from different warehouses without moving it to a central repository.</li>
-                           <li>Federated architecture requires tool selection for data integration, querying, and performance optimization.</li>
-                           <li>Tools should support data transformation, metadata management, and seamless connectivity.</li>
-                           <li>This architecture provides <strong>flexibility, scalability, and faster access</strong> to distributed data.</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
+        <!-- Topics Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center text-slate-900 mb-12">Explore Topics</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    
+                    <!-- Data Warehousing Card -->
+                    <a href="data-warehousing.html" class="topic-card block p-8 text-center shadow-lg">
+                        <div class="flex items-center justify-center mb-4 bg-indigo-100 rounded-full w-16 h-16 mx-auto">
+                            <!-- Icon: Database -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Data Warehousing</h4>
+                        <p class="text-slate-600">Comprehensive notes on concepts, architecture, schemas, and OLAP.</p>
+                    </a>
+                    
+                    <!-- Java Card -->
+                    <a href="java-mcqs.html" class="topic-card block p-8 text-center shadow-lg">
+                        <div class="flex items-center justify-center mb-4 bg-purple-100 rounded-full w-16 h-16 mx-auto">
+                             <!-- Icon: Code -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Java MCQs</h4>
+                        <p class="text-slate-600">Practice questions covering everything from fundamentals to advanced topics.</p>
+                    </a>
 
-            <!-- Section 4: ETL -->
-            <section id="s4" class="scroll-mt-24">
-                <h2 class="text-3xl font-bold mb-6 pb-2 border-b border-gray-300 text-gray-900">4. Extract, Transform, and Load (ETL)</h2>
-                 <div class="space-y-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">4.1. 🔄 Introduction to ETL</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>ETL (Extract, Transform, Load)</strong> is a core process that moves data from sources to the warehouse.</li>
-                           <li><strong>Extraction</strong> is the first step, where data is collected from multiple source systems.</li>
-                           <li><strong>Transformation</strong> is the process of cleaning, validating, and converting data into a consistent format.</li>
-                           <li>Transformations may include removing duplicates, standardizing values, and applying business rules.</li>
-                           <li><strong>Loading</strong> is the final step, where the transformed data is inserted into the data warehouse.</li>
-                           <li>ETL ensures that the data in the warehouse is <strong>accurate, consistent, and ready for querying</strong>.</li>
-                           <li>ETL can be implemented as <strong>batch processing</strong> (periodic) or <strong>real-time processing</strong> (continuous).</li>
-                           <li>Tools like Informatica, Talend, SSIS, and Pentaho are commonly used for ETL processes.</li>
-                           <li>ETL is critical for data integration, quality, and preparing data for business intelligence.</li>
-                           <li>A well-designed ETL process reduces errors, improves performance, and ensures reliable analytics.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">4.2. 🔍 Data Extraction: Extraction Methods</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Data extraction</strong> is the process of retrieving data from various source systems for the warehouse.</li>
-                           <li>The goal is to collect relevant and accurate data <strong>without disrupting the source systems</strong>.</li>
-                           <li>Extraction methods determine how data is captured and transferred to the ETL process.</li>
-                           <li><strong>Full extraction</strong> is a common method where all source data is copied every time.</li>
-                           <li><strong>Incremental extraction</strong> captures only new or updated records since the last extraction.</li>
-                           <li><strong>Log-based extraction</strong> uses database logs to track changes and extract only modified data.</li>
-                           <li>Extraction can be manual, semi-automated, or fully automated depending on system complexity.</li>
-                           <li>The method selection depends on data volume, source system type, and update frequency.</li>
-                           <li>Proper extraction ensures data consistency, minimal performance impact, and accuracy.</li>
-                           <li>Effective extraction is crucial for building a reliable and timely data warehouse.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">4.3. 🧩 Logical Extraction Methods</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>Logical extraction methods focus on selecting and retrieving <strong>only the necessary data</strong> from source systems.</li>
-                           <li>Unlike physical extraction, it does not copy the entire database, but uses queries to get specific information.</li>
-                           <li>Common methods include <strong>SQL-based extraction</strong>, where SELECT statements pull required records.</li>
-                           <li><strong>View-based extraction</strong> creates database views to simplify and structure the data for ETL.</li>
-                           <li><strong>Stored procedure extraction</strong> uses predefined database routines to extract complex or filtered data.</li>
-                           <li><strong>Change data capture (CDC)</strong> is a logical method that identifies and extracts only modified or new data.</li>
-                           <li>Logical extraction helps in reducing data transfer time and storage requirements.</li>
-                           <li>It ensures that data quality and integrity are maintained during the extraction process.</li>
-                           <li>This method allows incremental loading, minimizing the load on source systems.</li>
-                           <li>Logical extraction is <strong>efficient, flexible, and widely used</strong> in modern ETL projects.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">4.4. 🛠️ Physical Extraction Methods & Data Transformation</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Physical extraction</strong> methods involve copying entire data sets or large chunks directly from the source system.</li>
-                           <li>Common techniques include <strong>full table dumps, file transfers, and database exports</strong>.</li>
-                           <li>Physical extraction is often used when source systems cannot support complex queries.</li>
-                           <li>It may require significant storage and network resources due to the volume of data moved.</li>
-                           <li>Physical extraction ensures all data is captured, including records not easily accessed through queries.</li>
-                           <li><strong>Data transformation</strong> is the next step, where extracted data is cleaned, standardized, and converted.</li>
-                           <li>Transformation may include data cleansing, aggregation, validation, and applying business rules.</li>
-                           <li>It ensures that data from different sources is <strong>consistent, accurate, and suitable</strong> for analysis.</li>
-                           <li>Transformation can be simple (format changes) or complex (calculations, derivations).</li>
-                           <li>Together, physical extraction and transformation prepare high-quality data for the warehouse.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">4.5. 🔄 Basic Tasks in Transformation</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>Data transformation converts extracted data into a consistent, usable format for the warehouse.</li>
-                           <li>The first basic task is <strong>data cleansing</strong>, which removes duplicates, errors, and inconsistencies.</li>
-                           <li><strong>Data integration</strong> combines data from multiple sources into a unified structure.</li>
-                           <li><strong>Data aggregation</strong> summarizes detailed data, such as totals, averages, or counts.</li>
-                           <li><strong>Data conversion</strong> changes data types or formats to ensure compatibility.</li>
-                           <li><strong>Data validation</strong> checks for accuracy, completeness, and compliance with business rules.</li>
-                           <li><strong>Data enrichment</strong> enhances data quality by adding derived or supplementary information.</li>
-                           <li><strong>Sorting and filtering</strong> organize data to facilitate efficient querying and reporting.</li>
-                           <li><strong>Key generation</strong> and mapping create unique identifiers and relationships between data sets.</li>
-                           <li>These transformation tasks ensure the data loaded into the warehouse is accurate and ready for analytics.</li>
-                        </ol>
-                    </div>
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">4.6. 🔄 Major Transformation Types, Loading, and ETL Tools</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>Major data transformation types include <strong>cleansing, aggregation, integration, conversion, and derivation</strong>.</li>
-                           <li><strong>Cleansing</strong> removes errors, duplicates, and inconsistencies to ensure accuracy.</li>
-                           <li><strong>Aggregation</strong> summarizes detailed data for reports, such as totals or averages.</li>
-                           <li><strong>Integration</strong> merges data from multiple sources into a consistent format.</li>
-                           <li>Conversion and derivation involve changing data types or creating new calculated fields.</li>
-                           <li><strong>Data loading</strong> is the process of inserting transformed data into the data warehouse.</li>
-                           <li>Loading techniques include <strong>full load</strong> (entire dataset) and <strong>incremental load</strong> (only new/changed data).</li>
-                           <li><strong>Batch loading</strong> processes data in scheduled intervals, while <strong>real-time loading</strong> streams data continuously.</li>
-                           <li>Popular ETL tools include <strong>Informatica, Talend, SSIS, Pentaho, and Oracle Data Integrator</strong>.</li>
-                           <li>Using ETL tools simplifies the process, ensures data quality, and speeds up implementation.</li>
-                        </ol>
-                    </div>
                 </div>
-            </section>
-            
-            <!-- Section 5: Data Lakes -->
-            <section id="s5" class="scroll-mt-24">
-                <h2 class="text-3xl font-bold mb-6 pb-2 border-b border-gray-300 text-gray-900">5. Data Lakes</h2>
-                 <div class="space-y-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">5.1. 🌊 Introduction to Data Lakes</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A <strong>data lake</strong> is a centralized repository that stores vast amounts of <strong>raw data</strong> in its native format.</li>
-                           <li>Unlike a data warehouse, it can hold <strong>structured, semi-structured, and unstructured data</strong>.</li>
-                           <li>It allows organizations to store all types of data without upfront modeling or schema design.</li>
-                           <li>Data lakes support big data analytics, machine learning, and real-time data processing.</li>
-                           <li>They are designed for <strong>scalability</strong>, handling huge volumes of data from multiple sources.</li>
-                           <li>Data is ingested as-is, and transformation is done when data is read (<strong>schema-on-read</strong>).</li>
-                           <li>Data lakes enable flexible analysis, as data scientists can explore raw data freely.</li>
-                           <li>Common storage technologies include HDFS, Amazon S3, and Azure Data Lake Storage.</li>
-                           <li>Proper management requires data cataloging, metadata management, and access controls.</li>
-                           <li>Data lakes provide a <strong>cost-effective and scalable solution</strong> for storing and analyzing large, diverse datasets.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">5.2. 📘 Data Lake Characteristics and Importance</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A key characteristic is storing <strong>raw, unprocessed data</strong> of any type (structured or unstructured).</li>
-                           <li>It uses a <strong>schema-on-read</strong> approach, applying structure only when data is queried.</li>
-                           <li>Data lakes are built on <strong>scalable and low-cost storage</strong>, like cloud object stores.</li>
-                           <li>They <strong>decouple storage from compute</strong>, allowing different tools to access the same data.</li>
-                           <li>Importance: Data lakes enable <strong>big data analytics</strong> and exploration of massive datasets.</li>
-                           <li>They are crucial for <strong>training AI and Machine Learning models</strong> that need large, diverse data.</li>
-                           <li>They offer greater <strong>agility and flexibility</strong> for data scientists to experiment with new data.</li>
-                           <li>A data lake acts as a <strong>centralized repository</strong> for all of an organization's data.</li>
-                           <li>By storing raw data, it <strong>future-proofs analytics</strong>, as data can be repurposed for new uses.</li>
-                           <li>They are more <strong>cost-efficient</strong> for storing vast amounts of infrequently used data than a warehouse.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">5.3. ⚡ Real-Time Need for a Data Lake</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>The real-time need arises from handling <strong>high-velocity data streams</strong> from sources like IoT and social media.</li>
-                           <li>A data lake can ingest and store streaming data continuously <strong>without operational slowdowns</strong>.</li>
-                           <li>It enables <strong>immediate analytics and insights</strong> through real-time dashboards and monitoring.</li>
-                           <li>Real-time processing engines (like Spark Streaming) can analyze data as it arrives in the lake.</li>
-                           <li>This allows for quick <strong>event detection and response</strong>, such as for fraud or anomaly detection.</li>
-                           <li>It supports the instant integration of multiple diverse data sources for holistic, up-to-the-minute views.</li>
-                           <li>Real-time data is essential for <strong>online machine learning models</strong> that require continuous updates.</li>
-                           <li>The scalable architecture of data lakes is built to handle large real-time workloads with low latency.</li>
-                           <li>Use cases include real-time e-commerce recommendations and live transaction monitoring in banking.</li>
-                           <li>It is critical for predictive maintenance, analyzing sensor data to prevent equipment failure.</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
+            </div>
+        </section>
+    </main>
 
-             <!-- Section 6: Schemas -->
-            <section id="s6" class="scroll-mt-24">
-                <h2 class="text-3xl font-bold mb-6 pb-2 border-b border-gray-300 text-gray-900">6. Data Warehouse Schemas</h2>
-                 <div class="space-y-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">6.1. 🌟 Star Schema</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Star schema</strong> is a data warehouse schema where a central fact table is connected to multiple dimension tables.</li>
-                           <li>The structure resembles a <strong>star shape</strong>, with the fact table at the center and dimensions radiating out.</li>
-                           <li>The <strong>fact table</strong> contains quantitative data (measures) like sales amount, revenue, or quantity.</li>
-                           <li>It also includes foreign keys that reference the primary keys of the dimension tables.</li>
-                           <li><strong>Dimension tables</strong> contain descriptive attributes (like customer name, product category, time).</li>
-                           <li>They provide context for the measures stored in the fact table.</li>
-                           <li>The design is <strong>denormalized</strong>, meaning dimension tables contain redundant data for faster queries.</li>
-                           <li>Star schema offers <strong>high query performance</strong> because it requires fewer joins between tables.</li>
-                           <li>Its simplicity makes it easy to understand, design, and a popular choice for data marts.</li>
-                           <li>A limitation is potential data redundancy, making it less space-efficient than normalized schemas.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">6.2. 📂 Inside a Dimensional Table</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A dimension table contains <strong>descriptive (textual or categorical) data</strong> that gives context to facts.</li>
-                           <li>Every dimension table has a <strong>primary key (surrogate key)</strong> that uniquely identifies each record.</li>
-                           <li>It contains <strong>attributes</strong> or fields describing the dimension (e.g., product name, category, color).</li>
-                           <li>The data is mostly text-based and is not used in calculations.</li>
-                           <li>Dimensions often include <strong>hierarchies</strong>, like Date -> Month -> Year or City -> State -> Country.</li>
-                           <li>The structure is usually <strong>denormalized</strong> to store all descriptive info in one table for faster querying.</li>
-                           <li>It handles historical changes in attributes using <strong>Slowly Changing Dimensions (SCD)</strong> techniques.</li>
-                           <li>Dimension tables typically have <strong>low cardinality</strong> (fewer records) compared to fact tables.</li>
-                           <li>They are often "wide," meaning they have many columns (attributes).</li>
-                           <li><strong>Surrogate keys</strong> (system-generated) are used instead of natural keys to maintain consistency over time.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">6.3. 📊 Inside a Fact Table</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A fact table is the central table in a schema that stores <strong>quantitative (numeric) business data</strong>.</li>
-                           <li>It contains <strong>measures</strong> or facts, which are measurable numeric values like sales amount or quantity sold.</li>
-                           <li>It includes <strong>foreign keys</strong> that reference dimension tables, linking facts to their descriptive context.</li>
-                           <li>Each row represents a single business event at a specific level of <strong>granularity</strong> (e.g., one order line).</li>
-                           <li>Facts can be <strong>additive</strong> (summable across all dimensions) or <strong>semi/non-additive</strong>.</li>
-                           <li>Fact tables hold a <strong>high volume of data</strong>, often millions or billions of rows.</li>
-                           <li>Common types are <strong>transactional</strong>, <strong>snapshot</strong>, and <strong>accumulating</strong> fact tables.</li>
-                           <li>A <strong>composite primary key</strong> (all foreign keys together) or a single surrogate key can be used.</li>
-                           <li>Almost all fact tables have a <strong>time dimension link</strong> to analyze data over time.</li>
-                           <li>An example structure is `Sales_Fact: (Date_ID, Product_ID, Quantity, Sales_Amount)`.</li>
-                        </ol>
-                    </div>
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">6.4. 📌 Factless Fact Table</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A factless fact table is a fact table with <strong>no numeric measures/facts</strong>.</li>
-                           <li>Its purpose is to capture the <strong>occurrence of an event</strong> or track relationships between dimensions.</li>
-                           <li>It contains <strong>only foreign keys</strong> to dimension tables to represent the context of the event.</li>
-                           <li>It is used for event tracking, such as student attendance, product promotions, or employee participation.</li>
-                           <li>It can also track <strong>coverage</strong>, identifying which combinations of dimensions occurred (or did not).</li>
-                           <li>Though it has no measures, it is useful for <strong>counting events</strong> (e.g., `COUNT(*)`).</li>
-                           <li>It has a very simple structure, making it lightweight and easy to maintain.</li>
-                           <li>Queries on this table often use `COUNT()` instead of `SUM()` or `AVG()`.</li>
-                           <li>An example is `Attendance_Factless: (Date_ID, Student_ID, Class_ID)`.</li>
-                           <li>Each row simply records that an event (a student attending a class on a date) happened.</li>
-                        </ol>
-                    </div>
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">6.5. 📌 Granularity in Data Warehouse</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Granularity</strong> refers to the level of detail or depth of data stored in a fact table.</li>
-                           <li>Highly detailed data is called <strong>high granularity</strong> (or fine grain), e.g., each individual sales transaction.</li>
-                           <li>Summarized or aggregated data is called <strong>low granularity</strong> (or coarse grain), e.g., monthly sales totals.</li>
-                           <li>The chosen granularity determines the <strong>number of rows</strong> in the fact table.</li>
-                           <li>High granularity requires more storage but allows for more detailed analysis.</li>
-                           <li>Low granularity requires less storage and provides faster query performance but offers less detail.</li>
-                           <li>Choosing the correct granularity is a <strong>critical design decision</strong> based on business requirements.</li>
-                           <li>You can always <strong>roll up</strong> high-granularity data to a lower level, but you cannot drill down from low granularity.</li>
-                           <li>The lowest possible level of detail is often called the <strong>atomic grain</strong>.</li>
-                           <li>It represents a trade-off between the richness of analysis and the cost of storage and performance.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">6.6. ❄️ Snowflake Schema</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A <strong>snowflake schema</strong> is a type of data warehouse schema that is a normalized version of a star schema.</li>
-                           <li>Its key feature is that <strong>dimension tables are normalized</strong> into multiple related tables.</li>
-                           <li>This normalization breaks down a single dimension table into a hierarchy of sub-dimensions.</li>
-                           <li>For example, a `Location` dimension might be split into `City`, `State`, and `Country` tables.</li>
-                           <li>The structure resembles a <strong>snowflake</strong>, with branches extending from the main dimension tables.</li>
-                           <li>It <strong>reduces data redundancy</strong> and saves storage space compared to a star schema.</li>
-                           <li>However, it introduces <strong>more complexity</strong> and requires more joins to query the data.</li>
-                           <li>The increased number of joins can lead to <strong>slower query performance</strong>.</li>
-                           <li>It is generally used when dimensions are very large and have complex hierarchies.</li>
-                           <li>It represents a trade-off, prioritizing storage efficiency over query simplicity and speed.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">6.7. 🌌 Fact Constellation Schema</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A fact constellation schema is a complex schema with <strong>multiple fact tables</strong> that share dimension tables.</li>
-                           <li>It is also known as a <strong>Galaxy Schema</strong> because its structure resembles a collection of stars.</li>
-                           <li>It contains two or more fact tables representing different business processes (e.g., `Sales_Fact`, `Shipping_Fact`).</li>
-                           <li><strong>Dimension tables are shared</strong> among these multiple fact tables (e.g., `Date`, `Product`).</li>
-                           <li>This schema allows the <strong>integration of data</strong> from different business areas into one unified model.</li>
-                           <li>Shared dimensions ensure <strong>data consistency</strong> across all connected fact tables.</li>
-                           <li>It is <strong>more complex to design and maintain</strong> compared to star and snowflake schemas.</li>
-                           <li>However, it provides great <strong>flexibility</strong> to analyze data across multiple business processes simultaneously.</li>
-                           <li>It requires more storage space due to multiple large fact tables.</li>
-                           <li>An example is a `Sales_Fact` and an `Inventory_Fact` both sharing `Date`, `Product`, and `Store` dimensions.</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
-            
-             <!-- Section 7: OLAP -->
-            <section id="s7" class="scroll-mt-24">
-                <h2 class="text-3xl font-bold mb-6 pb-2 border-b border-gray-300 text-gray-900">7. Online Analytical Processing (OLAP)</h2>
-                 <div class="space-y-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.1. 📌 Data Warehouse & OLAP</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A <strong>Data Warehouse</strong> is a central repository storing integrated, historical data from multiple sources.</li>
-                           <li>Its primary purpose is to support decision-making and strategic analysis, not daily operations.</li>
-                           <li>It stores large volumes of historical data that is read-only and periodically updated via ETL.</li>
-                           <li>It is structured using schemas (star, snowflake) with fact and dimension tables.</li>
-                           <li><strong>OLAP (Online Analytical Processing)</strong> is a technology used to analyze data in the warehouse.</li>
-                           <li>OLAP tools allow users to quickly explore <strong>multidimensional data</strong> from various perspectives.</li>
-                           <li>Data is often structured into <strong>OLAP cubes</strong> for fast querying and analysis.</li>
-                           <li>OLAP supports operations like <strong>roll-up, drill-down, slice, and dice</strong>.</li>
-                           <li>In essence, OLAP is an <strong>analytical layer built on top of the data warehouse</strong>.</li>
-                           <li>The relationship is: the data warehouse stores the data, and OLAP provides the tools to analyze it.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.2. 📌 Introduction — What is OLAP</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>OLAP</strong> stands for Online Analytical Processing, a technology for fast data analysis from multiple perspectives.</li>
-                           <li>Its purpose is to support <strong>decision-making, planning, and reporting</strong> by enabling complex queries.</li>
-                           <li>OLAP organizes data into <strong>multidimensional cubes</strong> (e.g., dimensions of time, product, region).</li>
-                           <li>It allows users to <strong>interactively explore data</strong> by drilling down, rolling up, slicing, and dicing.</li>
-                           <li>It provides <strong>fast query response times</strong>, even on large data sets, by using pre-aggregated data.</li>
-                           <li>OLAP tools typically use data from a <strong>data warehouse</strong> or other consolidated data stores.</li>
-                           <li>It supports complex analytical queries that are difficult to run on transactional databases.</li>
-                           <li>It is commonly used in <strong>business intelligence (BI)</strong> for sales analysis, budgeting, and forecasting.</li>
-                           <li>It offers <strong>user-friendly interfaces</strong> with graphs, charts, and pivot tables.</li>
-                           <li>The main goal of OLAP is to turn large volumes of data into useful, <strong>actionable insights</strong>.</li>
-                        </ol>
-                    </div>
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.3. 📌 Characteristics of OLAP</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Multidimensional Data Model:</strong> OLAP represents data as cubes to analyze it from multiple perspectives.</li>
-                           <li><strong>Analytical Operations:</strong> It supports complex operations such as roll-up, drill-down, slice, and dice.</li>
-                           <li><strong>Fast Query Performance:</strong> It is designed to quickly retrieve and process large amounts of data.</li>
-                           <li><strong>Aggregated Data:</strong> It often stores pre-aggregated summaries to speed up query response time.</li>
-                           <li><strong>Read-Optimized:</strong> OLAP systems are optimized for read-intensive queries, not frequent updates.</li>
-                           <li><strong>Time-Variant Data:</strong> It can analyze data across different time periods to track trends.</li>
-                           <li><strong>Consistent and Integrated Data:</strong> It works on cleaned, consolidated data from a data warehouse.</li>
-                           <li><strong>High Interactivity:</strong> It provides dynamic analysis, allowing users to explore data with minimal delays.</li>
-                           <li><strong>User-Friendly Interface:</strong> It offers tools like dashboards and pivot tables for business users.</li>
-                           <li><strong>Supports Large Volumes of Data:</strong> It can handle massive datasets efficiently while maintaining performance.</li>
-                        </ol>
-                    </div>
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.4. 📌 Steps in the OLAP Creation Process</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Requirement Analysis:</strong> Identify business objectives, KPIs, and analytical needs from stakeholders.</li>
-                           <li><strong>Data Source Identification:</strong> Locate and select relevant operational databases or data warehouse sources.</li>
-                           <li><strong>Data Extraction:</strong> Extract raw data from multiple sources using ETL tools.</li>
-                           <li><strong>Data Transformation:</strong> Cleanse, integrate, and format the data into a consistent structure.</li>
-                           <li><strong>Data Loading:</strong> Load the transformed data into a data warehouse, which acts as the backend.</li>
-                           <li><strong>Designing the Data Model:</strong> Create multidimensional schemas (star, snowflake) with fact and dimension tables.</li>
-                           <li><strong>Building OLAP Cubes:</strong> Develop OLAP cubes by organizing data into dimensions and measures.</li>
-                           <li><strong>Aggregation and Indexing:</strong> Pre-calculate aggregates and build indexes to speed up queries.</li>
-                           <li><strong>Deploying OLAP Tools:</strong> Implement OLAP server and client tools (dashboards, pivot tables).</li>
-                           <li><strong>Testing and Maintenance:</strong> Perform testing, validation, performance tuning, and schedule regular updates.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.5. ✅ Advantages of OLAP</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Fast Data Analysis:</strong> Provides quick responses to complex analytical queries, even on large datasets.</li>
-                           <li><strong>Multidimensional View:</strong> Enables users to analyze data from multiple perspectives.</li>
-                           <li><strong>Better Decision-Making:</strong> Helps managers make informed, data-driven decisions using accurate insights.</li>
-                           <li><strong>User-Friendly Interface:</strong> Offers intuitive dashboards and pivot tables for non-technical users.</li>
-                           <li><strong>Time-Based Analysis:</strong> Supports trend analysis over different time periods.</li>
-                           <li><strong>Data Consistency:</strong> Works on clean, integrated, and consistent data from the data warehouse.</li>
-                           <li><strong>High Query Performance:</strong> Uses pre-aggregated data and indexing for high-speed queries.</li>
-                           <li><strong>Supports Complex Calculations:</strong> Capable of handling advanced mathematical and statistical calculations.</li>
-                           <li><strong>Improved Productivity:</strong> Reduces the time analysts spend gathering data, allowing them to focus on interpretation.</li>
-                           <li><strong>Scalable and Flexible:</strong> Can scale to handle growing data volumes and adapt to changing business needs.</li>
-                        </ol>
-                    </div>
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.6. 📌 Multidimensional Data — OLAP Architectures</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>Multidimensional data</strong> represents data organized into cubes with multiple dimensions (e.g., time, product).</li>
-                           <li>A <strong>dimension</strong> is a perspective for analyzing data, while <strong>measures</strong> are the numeric facts.</li>
-                           <li>Dimensions can have <strong>hierarchies</strong> (e.g., Year -> Quarter -> Month) to support drill-down analysis.</li>
-                           <li><strong>Data cubes</strong> are logical structures that allow fast retrieval of summarized data across dimensions.</li>
-                           <li><strong>OLAP architectures</strong> define how this multidimensional data is stored, processed, and accessed.</li>
-                           <li>A typical OLAP system uses a <strong>three-tier architecture</strong>: data warehouse, OLAP server, and client tools.</li>
-                           <li>The <strong>OLAP Server</strong> is the core component that processes queries on the multidimensional data.</li>
-                           <li>There are three main types of OLAP architectures: <strong>MOLAP, ROLAP, and HOLAP</strong>.</li>
-                           <li><strong>MOLAP</strong> stores data in multidimensional cubes, while <strong>ROLAP</strong> stores it in relational tables.</li>
-                           <li>The goal of the architecture is to deliver high-speed analytical processing with a scalable design.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.7. 📌 MOLAP, ROLAP, HOLAP</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li><strong>MOLAP (Multidimensional OLAP):</strong> Stores data in optimized, pre-aggregated multidimensional cubes.</li>
-                           <li>Its key advantage is <strong>very fast query performance</strong> due to this pre-calculation.</li>
-                           <li>However, MOLAP requires extra storage and can be less scalable for extremely large datasets.</li>
-                           <li><strong>ROLAP (Relational OLAP):</strong> Stores data directly in standard relational database tables.</li>
-                           <li>Its strength is <strong>high scalability</strong>, as it leverages the power of relational databases to handle vast data.</li>
-                           <li>However, query performance can be slower since aggregations are performed on-the-fly with SQL.</li>
-                           <li><strong>HOLAP (Hybrid OLAP):</strong> Combines the speed of MOLAP with the scalability of ROLAP.</li>
-                           <li>It stores summaries and aggregates in a MOLAP cube for fast access.</li>
-                           <li>Detailed, granular data remains in the ROLAP relational database for drill-down.</li>
-                           <li>HOLAP provides a balanced solution for systems needing both performance and scalability.</li>
-                        </ol>
-                    </div>
-                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.8. 🧊 Hypercube & Multi-cubes, ⚙️ OLAP Operations.</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                           <li>A <strong>Hypercube</strong> is a multidimensional data structure in OLAP used to store data with more than three dimensions.</li>
-                           <li><strong>Multi-cubes</strong> refer to a system with multiple hypercubes, often sharing common dimensions.</li>
-                           <li><strong>OLAP Operations</strong> are functions that allow users to interactively analyze the data cube.</li>
-                           <li><strong>Slice:</strong> Selects a single value for one dimension to create a sub-cube (e.g., sales for `Year = 2024`).</li>
-                           <li><strong>Dice:</strong> Selects a range of values for multiple dimensions to create a smaller cube.</li>
-                           <li><strong>Roll-up:</strong> Aggregates data along a dimension hierarchy (e.g., from daily sales to monthly sales).</li>
-                           <li><strong>Drill-down:</strong> Moves from summarized data to more detailed data (e.g., from monthly to daily).</li>
-                           <li><strong>Pivot (Rotate):</strong> Reorients the cube to view the data from a different perspective.</li>
-                           <li>These operations are interactive and provide the analytical flexibility central to OLAP.</li>
-                           <li>They are fundamental for uncovering patterns and insights within multidimensional data.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 note-section">
-                        <h3 class="text-xl font-bold mb-3 text-gray-800">7.9. 🎯 OLAP Use Cases</h3>
-                        <ul class="list-disc list-inside space-y-4 text-gray-700">
-                            <li>
-                                <strong class="text-gray-800">MOLAP Use Cases:</strong>
-                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
-                                    <li>Dashboards and executive reporting requiring immediate responses.</li>
-                                    <li>Financial analysis and budgeting with complex, predefined calculations.</li>
-                                    <li>Interactive drill-downs on small to medium-sized, frequently accessed datasets.</li>
-                                </ul>
-                            </li>
-                             <li>
-                                <strong class="text-gray-800">ROLAP Use Cases:</strong>
-                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
-                                    <li>Analyzing very large datasets stored in existing relational data warehouses.</li>
-                                    <li>Situations requiring ad-hoc queries and flexible, non-predefined reporting.</li>
-                                    <li>When data grows rapidly, making pre-aggregation impractical.</li>
-                                </ul>
-                            </li>
-                             <li>
-                                <strong class="text-gray-800">HOLAP Use Cases:</strong>
-                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
-                                    <li>Medium-to-large enterprises needing both high performance and scalability.</li>
-                                    <li>Systems where users frequently query summaries but occasionally need to drill down to details.</li>
-                                    <li>Creating a balanced analytical system with mixed workloads.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            
-        </main>
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; 2025 Educational Hub. All rights reserved.</p>
+        </div>
+    </footer>
 
-    </div>
 </body>
 </html>
+

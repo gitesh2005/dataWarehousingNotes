@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java MCQs & Answers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .accordion-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 1rem 1.5rem; font-size: 1.125rem; font-weight: 600; text-align: left; color: #334155; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.5rem; cursor: pointer; transition: background-color 0.3s; }
+        .accordion-header:hover { background-color: #f1f5f9; }
+        .accordion-header.active { background-color: #f0fdf4; color: #166534; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+        .accordion-icon { transition: transform 0.3s ease; flex-shrink: 0; }
+        .accordion-header.active .accordion-icon { transform: rotate(180deg); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background-color: white; border-radius: 0 0 0.5rem 0.5rem; border: 1px solid #e2e8f0; border-top: none; }
+        .btn { transition: background-color 0.3s, transform 0.2s; }
+        .btn:hover { transform: translateY(-2px); }
+        .answers-section.hidden { display: none; }
+    </style>
+</head>
+<body class="text-slate-700">
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-slate-800">☕ Java MCQs</h1>
+            <a href="index.html" class="text-indigo-600 hover:underline font-medium">&larr; Back to Home</a>
+        </nav>
+    </header>
+    <main class="container mx-auto px-6 py-12">
+        <div class="space-y-4" id="java-accordion-container">
+             <!-- Java MCQs Accordions will be dynamically inserted here -->
+        </div>
+        <div class="text-center my-8">
+            <button id="toggle-answers-btn" class="btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md">
+                Show All Answers
+            </button>
+        </div>
+        <div id="answers-section" class="answers-section hidden">
+            <h3 class="text-3xl font-bold text-slate-800 mb-6 text-center">Answer Key</h3>
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8 space-y-8" id="java-answers-container">
+                <!-- Java Answers will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+    <script>
+        const javaMcqsData = [
+            {
+                title: "Topic 1: Java Fundamentals & Basic Syntax",
+                questions: [
+                    { q: "1. Who is credited with the invention of Java?", o: ["A) Dennis Ritchie", "B) James Gosling", "C) Guido van Rossum", "D) Bjarne Stroustrup"] },
+                    { q: "2. Which of the following is NOT a primitive data type in Java?", o: ["A) int", "B) float", "C) String", "D) char"] },
+                    { q: "3. What is the size of a long data type in Java?", o: ["A) 32 bits", "B) 16 bits", "C) 64 bits", "D) 8 bits"] },
+                    { q: "4. Which component of the Java platform is responsible for converting bytecode into machine code at runtime?", o: ["A) JDK (Java Development Kit)", "B) JRE (Java Runtime Environment)", "C) JVM (Java Virtual Machine)", "D) JDB (Java Debugger)"] },
+                    { q: "5. What is the default value of an uninitialized instance variable of type boolean?", o: ["A) true", "B) false", "C) 0", "D) null"] },
+                    { q: "6. Which of these is a valid variable name in Java?", o: ["A) 2variable", "B) _myVariable", "C) variable-name", "D) final"] },
+                    { q: "7. What will be the output of the following code?<br><pre>int x = 5; \nSystem.out.println(x++);</pre>", o: ["A) 6", "B) 5", "C) Compilation Error", "D) 4"] },
+                    { q: "8. Which operator is used for checking equality of value between two primitive variables?", o: ["A) =", "B) ==", "C) .equals()", "D) is"] },
+                    { q: "9. What is the entry point of a Java program?", o: ["A) start() method", "B) main() method", "C) init() method", "D) run() method"] },
+                    { q: "10. How do you write a single-line comment in Java?", o: ["A) /* This is a comment */", "B) // This is a comment", "C) <!-- This is a comment -->", "D) # This is a comment"] },
+                    { q: "11. What is the range of the byte data type in Java?", o: ["A) -128 to 127", "B) -32768 to 32767", "C) 0 to 255", "D) -2,147,483,648 to 2,147,483,647"] },
+                    { q: "12. The \\u0021 character literal represents which symbol?", o: ["A) A space", "B) A tab", "C) An exclamation mark", "D) A question mark"] },
+                    { q: "13. Which concept allows Java to be platform-independent?", o: ["A) Polymorphism", "B) Inheritance", "C) Bytecode", "D) Encapsulation"] },
+                    { q: "14. What will be the output of System.out.println(10 / 3);?", o: ["A) 3.33", "B) 3.0", "C) 3", "D) Compilation Error"] },
+                    { q: "15. Explicitly converting a larger data type to a smaller size is known as:", o: ["A) Type Promotion", "B) Type Casting (Explicit Conversion)", "C) Type Coercion", "D) Type Inference"] },
+                    { q: "16. Which of these is a valid keyword in Java?", o: ["A) string", "B) constant", "C) interface", "D) unsigned"] },
+                    { q: "17. What is the output of 5 & 6 (Bitwise AND)?", o: ["A) 1", "B) 4", "C) 5", "D) 7"] },
+                    { q: "18. What is the output of 5 | 6 (Bitwise OR)?", o: ["A) 1", "B) 4", "C) 5", "D) 7"] },
+                    { q: "19. Which class is used to take input from the console in Java?", o: ["A) Console", "B) Input", "C) Scanner", "D) System.in"] },
+                    { q: "20. What is the default value of a reference variable?", o: ["A) 0", "B) false", "C) \"\" (empty string)", "D) null"] },
+                    { q: "21. What is the size of a char in Java?", o: ["A) 8 bits", "B) 16 bits", "C) 32 bits", "D) Depends on the character"] },
+                    { q: "22. Which operator has the highest precedence in Java?", o: ["A) ++ (postfix)", "B) *", "C) +", "D) ="] },
+                    { q: "23. What is the result of 10 % 3?", o: ["A) 1", "B) 3", "C) 0", "D) 3.33"] },
+                    { q: "24. Which of the following is used to define a constant in Java?", o: ["A) const", "B) static", "C) final", "D) define"] },
+                    { q: "25. What is the output of the following code?<br><pre>int a = 1;\na = a++;\nSystem.out.println(a);</pre>", o: ["A) 1", "B) 2", "C) 0", "D) Compilation Error"] },
+                    { q: "26. What does the >>> operator do?", o: ["A) Signed right shift", "B) Unsigned right shift", "C) Signed left shift", "D) Bitwise NOT"] },
+                    { q: "27. What is the purpose of the java.lang package?", o: ["A) It contains utility classes.", "B) It contains classes for file I/O.", "C) It contains fundamental classes and is imported by default.", "D) It contains classes for networking."] },
+                    { q: "28. How do you create an instance of an object in Java?", o: ["A) Using the create keyword.", "B) Using the new keyword.", "C) Using the instance keyword.", "D) By simply declaring a variable of the class type."] },
+                    { q: "29. The short data type has a size of:", o: ["A) 8 bits", "B) 16 bits", "C) 32 bits", "D) 64 bits"] },
+                    { q: "30. What is the output of System.out.println('a' + 'b');?", o: ["A) ab", "B) 195", "C) a+b", "D) Compilation Error"] }
+                ],
+                answers: ["B) James Gosling", "C) String", "C) 64 bits", "C) JVM (Java Virtual Machine)", "B) false", "B) _myVariable", "B) 5 (Post-increment)", "B) ==", "B) main() method", "B) // This is a comment", "A) -128 to 127", "C) An exclamation mark", "C) Bytecode", "C) 3 (Integer division)", "B) Type Casting (Explicit Conversion)", "C) interface", "B) 4 (Binary 101 & 110 = 100)", "D) 7 (Binary 101 | 110 = 111)", "C) Scanner", "D) null", "B) 16 bits", "A) ++ (postfix)", "A) 1", "C) final", "A) 1 (Post-increment value is used before incrementing a, but the assignment happens later)", "B) Unsigned right shift", "C) It contains fundamental classes and is imported by default.", "B) Using the new keyword.", "B) 16 bits", "B) 195 ('a' is 97, 'b' is 98)"]
+            },
+            {
+                title: "Topic 2: Control Flow Statements",
+                questions: [
+                    { q: "31. Which statement is used to make a decision between two or more alternatives?", o: ["A) for", "B) while", "C) if-else", "D) break"] },
+                    { q: "32. What is the purpose of the break statement in a switch block?", o: ["A) To terminate the switch block and exit", "B) To skip the current case", "C) To continue to the next case (fall-through)", "D) It is mandatory at the end of every case"] },
+                    { q: "33. Which loop is guaranteed to execute at least once?", o: ["A) for loop", "B) while loop", "C) do-while loop", "D) if loop"] },
+                    { q: "34. What will be the output of the following code?<br><pre>for(int i = 0; i < 3; i++) { \n    if(i == 1) { \n        continue; \n    } \n    System.out.print(i + \" \"); \n}</pre>", o: ["A) 0 1 2", "B) 0 2", "C) 0 1", "D) 1 2"] },
+                    { q: "35. In a for loop declaration for(A; B; C), what does section B represent?", o: ["A) Initialization", "B) Increment/Decrement", "C) Body of the loop", "D) Condition"] },
+                    { q: "36. What happens if a break statement is omitted from a case in a switch block?", o: ["A) A syntax error occurs.", "B) The program terminates.", "C) Execution \"falls through\" to the next case.", "D) The switch block is exited automatically."] },
+                    { q: "37. Which of the following is NOT a valid jump statement in Java?", o: ["A) break", "B) continue", "C) goto", "D) return"] },
+                    { q: "38. How many times will the following loop execute?<br><pre>int i = 0; \nwhile (i > 5) { \n    System.out.println(\"Hello\"); \n    i++; \n}</pre>", o: ["A) 0 times", "B) 5 times", "C) 6 times", "D) Infinitely"] },
+                    { q: "39. The ternary operator ?: is a shorthand for which statement?", o: ["A) for loop", "B) if-else statement", "C) switch statement", "D) do-while loop"] },
+                    { q: "40. What is the correct syntax for an enhanced for loop (for-each loop)?", o: ["A) for (int i : array)", "B) for (int i = 0; i < array.length)", "C) for (i in array)", "D) foreach (int i in array)"] },
+                    { q: "41. What is the output of the following code?<br><pre>int a = 10; \nif (a > 10) { \n    System.out.println(\"A\"); \n} else if (a == 10) { \n    System.out.println(\"B\"); \n} else { \n    System.out.println(\"C\"); \n}</pre>", o: ["A) A", "B) B", "C) C", "D) No output"] },
+                    { q: "42. Which statement will transfer control to the beginning of a loop?", o: ["A) break", "B) return", "C) exit", "D) continue"] },
+                    { q: "43. A switch statement can test which of the following types?", o: ["A) int, String, enum", "B) long", "C) double", "D) boolean"] },
+                    { q: "44. In a labeled break statement, where does the control transfer to?", o: ["A) The beginning of the current loop.", "B) The end of the statement immediately following the labeled block.", "C) The main method.", "D) It terminates the program."] },
+                    { q: "45. What is the output?<br><pre>for (int i = 0; ; i++) { \n    if (i == 2) break; \n    System.out.print(i); \n}</pre>", o: ["A) 01", "B) 012", "C) Infinite loop", "D) Compilation Error"] },
+                    { q: "46. Which keyword is used for the block that contains default code in a switch statement?", o: ["A) otherwise", "B) else", "C) default", "D) case else"] },
+                    { q: "47. An infinite loop can be created with which for statement?", o: ["A) for(;;)", "B) for(int i=0; i<1; i--)", "C) for(int i=0; ; i--)", "D) All of the above"] },
+                    { q: "48. What is the output of the following?<br><pre>int x = 1;\nswitch (x) {\n    case 1:\n        System.out.print(\"1\");\n    case 2:\n        System.out.print(\"2\");\n    case 3:\n        System.out.print(\"3\");\n}</pre>", o: ["A) 1", "B) 12", "C) 123", "D) Compilation Error"] },
+                    { q: "49. Can you use a continue statement inside a switch block?", o: ["A) Yes, always", "B) No, never", "C) Only if the switch is inside a loop", "D) Only in the default case"] },
+                    { q: "50. What does a return statement do in a void method?", o: ["A) It returns a null value.", "B) It causes a compilation error.", "C) It terminates the execution of the method.", "D) It must be followed by a value."] }
+                ],
+                answers: ["C) if-else", "A) To terminate the switch block and exit", "C) do-while loop", "B) 0 2 (continue skips the iteration for i=1)", "D) Condition", "C) Execution \"falls through\" to the next case.", "C) goto (it is a reserved keyword but not used)", "A) 0 times (condition i > 5 is initially false)", "B) if-else statement", "A) for (int i : array)", "B) B", "D) continue", "A) int, String, enum", "B) The end of the statement immediately following the labeled block.", "A) 01", "C) default", "D) All of the above", "C) 123 (fall-through)", "C) Only if the switch is inside a loop", "C) It terminates the execution of the method."]
+            },
+            {
+                title: "Topic 3: Arrays & Strings",
+                questions: [
+                    { q: "51. How do you declare an array of integers in Java?", o: ["A) int array[];", "B) int array[5];", "C) array<int> arr;", "D) Array int[];"] },
+                    { q: "52. What is the index of the first element in a Java array?", o: ["A) 1", "B) 0", "C) -1", "D) It depends on the array size."] },
+                    { q: "53. What is the property used to find the length of an array?", o: ["A) size()", "B) length()", "C) length", "D) capacity()"] },
+                    { q: "54. What will be the output of the following code?<br><pre>int[] arr = {1, 2, 3}; \nSystem.out.println(arr[3]);</pre>", o: ["A) 3", "B) 0", "C) null", "D) ArrayIndexOutOfBoundsException"] },
+                    { q: "55. Which of the following statements about Java Strings is true?", o: ["A) Strings are mutable.", "B) Strings are stored in a special memory area called the \"String Constant Pool\".", "C) Strings are a primitive data type.", "D) The == operator always correctly compares the content of two strings."] },
+                    { q: "56. Which method is used to get the character at a specified index in a String?", o: ["A) getChar()", "B) charAt()", "C) substring()", "D) indexOf()"] },
+                    { q: "57. What will new String(\"test\").equals(\"test\") return?", o: ["A) true", "B) false", "C) Depends on the JVM", "D) Compilation Error"] },
+                    { q: "58. What will new String(\"test\") == \"test\" return?", o: ["A) true", "B) false", "C) Depends on the JVM", "D) Compilation Error"] },
+                    { q: "59. Which class is a mutable alternative to the String class?", o: ["A) StringBuffer", "B) StringCache", "C) MutableString", "D) StringArray"] },
+                    { q: "60. How can you create a multi-dimensional array in Java?", o: ["A) int[[]] arr = new int[3][3];", "B) int[][] arr = new int[3][3];", "C) int arr[3,3] = new int[][];", "D) This is not possible in Java."] },
+                    { q: "61. The String.trim() method removes:", o: ["A) All whitespace from the string.", "B) Only leading whitespace.", "C) Only trailing whitespace.", "D) Both leading and trailing whitespace."] },
+                    { q: "62. What is the result of \"hello\".substring(1, 3)?", o: ["A) \"hel\"", "B) \"ell\"", "C) \"el\"", "D) \"he\""] },
+                    { q: "63. An anonymous array can be created using:", o: ["A) new int[] {1, 2, 3};", "B) int[] arr = {1, 2, 3};", "C) (int[]){1, 2, 3};", "D) new {1, 2, 3};"] },
+                    { q: "64. Which class is generally faster and preferred for single-threaded environments: StringBuffer or StringBuilder?", o: ["A) StringBuffer because it is thread-safe.", "B) StringBuilder because it is not synchronized.", "C) They have identical performance.", "D) Neither, String is always faster."] },
+                    { q: "65. What does the String.valueOf(123) method do?", o: ["A) It returns the character '1'.", "B) It returns the integer 123.", "C) It returns the string \"123\".", "D) It causes a compilation error."] },
+                    { q: "66. What does the Arrays.sort() method do?", o: ["A) Sorts an array in descending order.", "B) Sorts an array in ascending order.", "C) Returns a sorted copy of the array.", "D) Reverses the elements of an array."] },
+                    { q: "67. How would you split the string \"one,two,three\" into an array of strings?", o: ["A) s.split(\",\")", "B) s.split_by(\",\")", "C) s.separate(\",\")", "D) s.slice(\",\")"] },
+                    { q: "68. What is the output of \"Java\".compareTo(\"Java\")?", o: ["A) A positive number", "B) A negative number", "C) 0", "D) true"] },
+                    { q: "69. What is the output of \"Java\".replace('a', 'o')?", o: ["A) \"Jovo\"", "B) \"java\"", "C) \"Jova\"", "D) The original string is changed to \"Jovo\"."] },
+                    { q: "70. Default values of elements in an integer array are:", o: ["A) 0", "B) 1", "C) null", "D) garbage values"] },
+                    { q: "71. How do you find the first occurrence of a character in a String?", o: ["A) find()", "B) search()", "C) indexOf()", "D) contains()"] },
+                    { q: "72. What is the output of \"abc\".equalsIgnoreCase(\"ABC\")?", o: ["A) true", "B) false", "C) 0", "D) 1"] },
+                    { q: "73. An array declaration int[] arr = new int[5] means:", o: ["A) arr can hold 5 integer elements.", "B) arr can hold 4 integer elements.", "C) The initial value of arr[0] is 5.", "D) The declaration is invalid."] },
+                    { q: "74. The main difference between StringBuffer and StringBuilder is:", o: ["A) StringBuilder is faster.", "B) StringBuffer is synchronized.", "C) StringBuilder can hold more characters.", "D) StringBuffer is a final class."] },
+                    { q: "75. What is the output of String.format(\"Value is %.2f\", 3.14159)?", o: ["A) \"Value is 3.14159\"", "B) \"Value is 3.14\"", "C) \"Value is 3.1\"", "D) \"Value is 3\""] }
+                ],
+                answers: ["A) int array[]; (or int[] array;)", "B) 0", "C) length", "D) ArrayIndexOutOfBoundsException", "B) Strings are stored in a special memory area called the \"String Constant Pool\".", "B) charAt()", "A) true", "B) false (== compares references)", "A) StringBuffer (and StringBuilder)", "B) int[][] arr = new int[3][3];", "D) Both leading and trailing whitespace.", "C) \"el\" (The end index is exclusive)", "A) new int[] {1, 2, 3};", "B) StringBuilder because it is not synchronized.", "C) It returns the string \"123\".", "B) Sorts an array in ascending order.", "A) s.split(\",\")", "C) 0", "A) \"Jovo\"", "A) 0", "C) indexOf()", "A) true", "A) arr can hold 5 integer elements.", "B) StringBuffer is synchronized.", "B) \"Value is 3.14\""]
+            },
+            {
+                title: "Topic 4: Methods (Functions)",
+                questions: [
+                    { q: "76. What is the correct way to declare a method that does not return any value?", o: ["A) method myMethod() { }", "B) void myMethod() { }", "C) null myMethod() { }", "D) int myMethod() { return null; }"] },
+                    { q: "77. In Java, arguments are passed to methods by:", o: ["A) Pass by value", "B) Pass by reference", "C) Pass by pointer", "D) It depends on the data type"] },
+                    { q: "78. What does the static keyword mean when applied to a method?", o: ["A) The method can only be called once.", "B) The method can be modified at runtime.", "C) The method belongs to the class, not a specific instance.", "D) The method cannot be called from outside the class."] },
+                    { q: "79. Which of these is a valid declaration for a method that takes a variable number of String arguments?", o: ["A) void myMethod(String... args)", "B) void myMethod(String[] args...)", "C) void myMethod(String args...)", "D) void myMethod(...String args)"] },
+                    { q: "80. What is recursion?", o: ["A) A loop that never ends.", "B) A method that calls another method.", "C) A method that calls itself.", "D) A method for sorting arrays."] },
+                    { q: "81. A method's signature consists of its:", o: ["A) Name and return type", "B) Name and parameter list (number, type, and order of parameters)", "C) Return type and parameter list", "D) Access modifier and name"] },
+                    { q: "82. Can you overload a method based only on a different return type?", o: ["A) Yes, this is a common practice.", "B) No, this will cause a compilation error.", "C) Yes, but only if the methods are in different classes.", "D) No, but it will cause a runtime error."] },
+                    { q: "83. What is the return type of a constructor?", o: ["A) void", "B) The class type", "C) null", "D) It does not have a return type."] },
+                    { q: "84. What is the base case in a recursive function?", o: ["A) The part of the function that performs the main computation.", "B) The part of the function that calls itself.", "C) The condition that stops the recursion.", "D) The initial call to the function."] },
+                    { q: "85. Which of these is true about static methods?", o: ["A) They can access instance variables directly.", "B) They can be overridden.", "C) They can be called without creating an object of the class.", "D) They must have a void return type."] },
+                    { q: "86. What happens if an object reference is passed to a method?", o: ["A) The original object can be modified.", "B) A copy of the object is passed.", "C) The reference is passed by value.", "D) It results in a compilation error."] },
+                    { q: "87. A method declared in a class can be called by:", o: ["A) Only other methods in the same class.", "B) An object of that class.", "C) Only the main method.", "D) The class name itself, if it is a static method."] },
+                    { q: "88. What is the scope of a variable declared inside a method?", o: ["A) The entire class.", "B) The specific method in which it is declared.", "C) The entire package.", "D) It is accessible globally."] },
+                    { q: "89. Can a method be declared as both abstract and final?", o: ["A) Yes", "B) No", "C) Only if it is also static.", "D) Only in an interface."] },
+                    { q: "90. How can a method return multiple values?", o: ["A) It is not possible.", "B) By using a comma-separated list in the return statement.", "C) By returning an array or a custom object containing the values.", "D) By using the return keyword multiple times."] }
+                ],
+                answers: ["B) void myMethod() { }", "A) Pass by value", "C) The method belongs to the class, not a specific instance.", "A) void myMethod(String... args)", "C) A method that calls itself.", "B) Name and parameter list (number, type, and order of parameters)", "B) No, this will cause a compilation error.", "D) It does not have a return type.", "C) The condition that stops the recursion.", "C) They can be called without creating an object of the class.", "C) The reference is passed by value.", "B) An object of that class.", "B) The specific method in which it is declared.", "B) No", "C) By returning an array or a custom object containing the values."]
+            },
+            {
+                title: "Topic 5: Object-Oriented Programming (OOP)",
+                questions: [
+                    { q: "91. Which OOPS principle promotes data hiding by bundling data and methods together?", o: ["A) Inheritance", "B) Polymorphism", "C) Encapsulation", "D) Abstraction"] },
+                    { q: "92. What is the main purpose of a constructor?", o: ["A) To destroy an object", "B) To initialize a newly created object", "C) To be used in place of a method", "D) To define the return type of a class"] },
+                    { q: "93. Which keyword is used by a subclass to inherit from a superclass?", o: ["A) implements", "B) super", "C) extends", "D) inherits"] },
+                    { q: "94. A class having multiple methods with the same name but different parameters is an example of:", o: ["A) Method Overriding", "B) Method Hiding", "C) Method Overloading", "D) Method Recursion"] },
+                    { q: "95. Which keyword is used to refer to the immediate parent class object?", o: ["A) this", "B) self", "C) parent", "D) super"] },
+                    { q: "96. A method declared as abstract in a class means:", o: ["A) The method has no implementation and must be overridden.", "B) The method cannot be accessed outside the class.", "C) The method belongs to the class, not an instance.", "D) The method cannot be overridden."] },
+                    { q: "97. Which of these can be used to prevent a method from being overridden?", o: ["A) static", "B) final", "C) private", "D) abstract"] },
+                    { q: "98. An interface in Java can contain:", o: ["A) Only abstract methods", "B) Only concrete methods", "C) Both abstract and default/static methods (since Java 8)", "D) Only constructors"] },
+                    { q: "99. The ability of an object to take on many forms is known as:", o: ["A) Encapsulation", "B) Inheritance", "C) Polymorphism", "D) Abstraction"] },
+                    { q: "100. If a class is declared final, it cannot be:", o: ["A) Instantiated", "B) Subclassed (extended)", "C) Used in a method", "D) It cannot have any methods"] },
+                    { q: "101. What is the this keyword used for?", o: ["A) To refer to the superclass of the current object.", "B) To refer to the current instance of the class.", "C) To create a new object.", "D) To call static methods."] },
+                    { q: "102. Can a constructor be declared as private?", o: ["A) No, it will cause a compilation error.", "B) Yes, this is often used in the Singleton design pattern.", "C) Yes, but the class can never be instantiated.", "D) No, constructors must be public."] },
+                    { q: "103. A method that belongs to the class rather than an instance is called:", o: ["A) An instance method", "B) A final method", "C) An abstract method", "D) A static method"] },
+                    { q: "104. What is a default constructor?", o: ["A) A constructor that takes no arguments.", "B) A constructor automatically provided by the compiler if no other is defined.", "C) A constructor with all private members.", "D) A constructor that is always public."] },
+                    { q: "105. In Encapsulation, how are instance variables typically accessed?", o: ["A) Directly", "B) Through public getter and setter methods", "C) Through static methods", "D) Through constructors only"] },
+                    { q: "106. Which type of inheritance is NOT supported by Java classes?", o: ["A) Single", "B) Multilevel", "C) Hierarchical", "D) Multiple"] },
+                    { q: "107. A subclass providing a specific implementation of a parent's method is:", o: ["A) Method Overloading", "B) Method Overriding", "C) Method Hiding", "D) Method Dispatch"] },
+                    { q: "108. An interface is an example of pure:", o: ["A) Encapsulation", "B) Polymorphism", "C) Abstraction", "D) Inheritance"] },
+                    { q: "109. Which access modifier allows access within the same package and to subclasses in other packages?", o: ["A) public", "B) private", "C) protected", "D) default"] },
+                    { q: "110. What is the first statement implicitly added to any subclass constructor?", o: ["A) super();", "B) this();", "C) super.init();", "D) Nothing is added."] },
+                    { q: "111. The Object class is the root of:", o: ["A) All exception classes.", "B) All Java class hierarchies.", "C) All interface hierarchies.", "D) Only core java.lang classes."] },
+                    { q: "112. Can an interface extend a class?", o: ["A) Yes", "B) No", "C) Only if the class is abstract.", "D) Only if the class is final."] },
+                    { q: "113. What is constructor chaining?", o: ["A) Calling one constructor from another.", "B) Linking multiple objects together.", "C) A sequence of method calls.", "D) A way to create deep copies of objects."] },
+                    { q: "114. What is the @Override annotation used for?", o: ["A) To indicate async execution.", "B) To mark a method as deprecated.", "C) To inform the compiler a method is intended to override a superclass method.", "D) To specify the method's return type."] },
+                    { q: "115. What is the difference between abstraction and encapsulation?", o: ["A) There is no difference.", "B) Abstraction hides complexity, while encapsulation hides data.", "C) Encapsulation is a form of inheritance.", "D) Abstraction is implemented using private, encapsulation uses abstract."] }
+                ],
+                answers: ["C) Encapsulation", "B) To initialize a newly created object", "C) extends", "C) Method Overloading", "D) super", "A) The method has no implementation and must be overridden.", "B) final", "C) Both abstract and default/static methods (since Java 8)", "C) Polymorphism", "B) Subclassed (extended)", "B) To refer to the current instance of the class.", "B) Yes, this is often used in the Singleton design pattern.", "D) A static method", "B) A constructor automatically provided by the compiler if no other constructor is defined.", "B) Through public getter and setter methods", "D) Multiple", "B) Method Overriding", "C) Abstraction", "C) protected", "A) super();", "B) All Java class hierarchies.", "B) No", "A) Calling one constructor from another.", "C) To inform the compiler that a method is intended to override a method in a superclass.", "B) Abstraction hides complexity, while encapsulation hides data."]
+            },
+            {
+                title: "Topic 6: Exception Handling",
+                questions: [
+                    { q: "116. Which block encloses code that might throw an exception?", o: ["A) catch", "B) finally", "C) try", "D) throw"] },
+                    { q: "117. Which block is always executed?", o: ["A) try", "B) catch", "C) finally", "D) throws"] },
+                    { q: "118. Which keyword manually throws an exception?", o: ["A) throw", "B) throws", "C) catch", "D) exception"] },
+                    { q: "119. All exception classes in Java are subclasses of:", o: ["A) java.lang.Exception", "B) java.lang.Error", "C) java.lang.Throwable", "D) java.lang.RuntimeException"] },
+                    { q: "120. Exceptions checked at compile-time are called:", o: ["A) Checked Exceptions", "B) Unchecked Exceptions", "C) Errors", "D) Runtime Exceptions"] },
+                    { q: "121. What is the correct order of catch blocks for Exception and IOException?", o: ["A) catch(Exception e) { ... } catch(IOException e) { ... }", "B) catch(IOException e) { ... } catch(Exception e) { ... }", "C) The order does not matter.", "D) You cannot catch both."] },
+                    { q: "122. The throws keyword is used in a:", o: ["A) Method signature", "B) try block", "C) catch block", "D) finally block"] },
+                    { q: "123. Which is an example of an Unchecked Exception?", o: ["A) IOException", "B) SQLException", "C) NullPointerException", "D) FileNotFoundException"] },
+                    { q: "124. Can a try block exist without a catch block?", o: ["A) No, it's a syntax error.", "B) Yes, if it is followed by a finally block.", "C) Yes, a try block can stand alone.", "D) No, every try must have a catch."] },
+                    { q: "125. `System.exit(0)` in a try/catch block will prevent the finally block from executing.", o: ["A) True", "B) False"] },
+                    { q: "126. Creating a custom exception class requires it to extend which class?", o: ["A) Error", "B) Throwable", "C) Exception", "D) RuntimeException"] },
+                    { q: "127. What is the purpose of the try-with-resources statement?", o: ["A) To automatically catch any exception.", "B) To automatically close resources.", "C) To allocate more memory to the try block.", "D) To handle multiple exceptions in one catch block."] },
+                    { q: "128. A finally block will not execute if:", o: ["A) An exception occurs in the try block.", "B) No exception occurs.", "C) The JVM crashes or System.exit() is called.", "D) A return statement is in the try block."] },
+                    { q: "129. Which error is thrown when the JVM runs out of memory?", o: ["A) MemoryLeakError", "B) StackOverflowError", "C) OutOfMemoryError", "D) MemoryFullException"] },
+                    { q: "130. Handling multiple exception types in one catch block (|) was introduced in:", o: ["A) Java 5", "B) Java 6", "C) Java 7", "D) Java 8"] },
+                    { q: "131. The Error class represents:", o: ["A) Conditions an application might want to catch.", "B) Serious problems an application should not try to catch.", "C) Syntax errors in the code.", "D) Exceptions from the garbage collector."] },
+                    { q: "132. What is the output?<br><pre>try {\n    return;\n} finally {\n    System.out.println(\"Finally\");\n}</pre>", o: ["A) No output", "B) \"Finally\"", "C) Compilation Error", "D) Runtime Error"] },
+                    { q: "133. What does the getMessage() method of an exception return?", o: ["A) The name of the exception class.", "B) A detailed string describing the exception.", "C) The stack trace.", "D) Nothing."] },
+                    { q: "134. If an exception is not caught, where is it propagated?", o: ["A) To the main method.", "B) To the finally block.", "C) To the caller of the method.", "D) It is discarded."] },
+                    { q: "135. What is the difference between throw and throws?", o: ["A) throw declares, throws triggers.", "B) throw triggers, throws declares in a method signature.", "C) They are interchangeable.", "D) throws is used in a try block, throw in a method declaration."] }
+                ],
+                answers: ["C) try", "C) finally", "A) throw", "C) java.lang.Throwable", "A) Checked Exceptions", "B) Subclass must come before superclass", "A) Method signature", "C) NullPointerException", "B) Yes, if it is followed by a finally block.", "A) True", "C) Exception (or its subclasses)", "B) To automatically close resources.", "C) The JVM crashes or System.exit() is called.", "C) OutOfMemoryError", "C) Java 7", "B) Serious problems that a reasonable application should not try to catch.", "B) \"Finally\"", "B) A detailed string describing the exception.", "C) To the caller of the method.", "B) throw is used to trigger an exception, throws is used in a method signature to declare it."]
+            },
+            {
+                title: "Topic 7: Collections Framework",
+                questions: [
+                    { q: "136. Which is the root interface of the Java Collections Framework?", o: ["A) List", "B) Set", "C) Collection", "D) Map"] },
+                    { q: "137. Which collection does NOT allow duplicate elements?", o: ["A) List", "B) Set", "C) Queue", "D) Stack"] },
+                    { q: "138. Which collection stores elements in key-value pairs?", o: ["A) List", "B) Set", "C) Collection", "D) Map"] },
+                    { q: "139. Which class implements the `List` interface?", o: ["A) HashSet", "B) ArrayList", "C) HashMap", "D) TreeMap"] },
+                    { q: "140. The `ArrayList` class is:", o: ["A) Synchronized and fast", "B) Not synchronized and fast", "C) Synchronized and slow", "D) Not synchronized and slow"] },
+                    { q: "141. Which interface provides FIFO access?", o: ["A) List", "B) Set", "C) Queue", "D) Map"] },
+                    { q: "142. How to get an element from `ArrayList` at an index?", o: ["A) get(index)", "B) elementAt(index)", "C) retrieve(index)", "D) list[index]"] },
+                    { q: "143. Which guarantees elements are stored in ascending order?", o: ["A) HashSet", "B) LinkedHashSet", "C) ArrayList", "D) TreeSet"] },
+                    { q: "144. How many null keys in a `HashMap`?", o: ["A) Unlimited", "B) Zero", "C) Only one", "D) Depends on implementation"] },
+                    { q: "145. The `Collections` class contains:", o: ["A) Only interfaces", "B) Only implementation classes", "C) Static utility methods for collections", "D) Only abstract classes"] },
+                    { q: "146. To make a collection thread-safe, use methods from:", o: ["A) Arrays", "B) Objects", "C) Collections", "D) SecurityManager"] },
+                    { q: "147. The `Iterator` interface is for:", o: ["A) Modifying elements", "B) Traversing a collection", "C) Sorting a collection", "D) Storing elements"] },
+                    { q: "148. Which `Iterator` method checks for more elements?", o: ["A) next()", "B) hasNext()", "C) hasElement()", "D) more()"] },
+                    { q: "149. Which is a synchronized legacy collection class?", o: ["A) ArrayList", "B) LinkedList", "C) Vector", "D) CopyOnWriteArrayList"] },
+                    { q: "150. Initial default capacity of `ArrayList`?", o: ["A) 5", "B) 10", "C) 16", "D) 20"] },
+                    { q: "151. Which collection maintains insertion order?", o: ["A) HashSet", "B) TreeSet", "C) LinkedHashSet", "D) ArrayList"] },
+                    { q: "152. Primary difference between `List` and `Set`?", o: ["A) List is ordered, Set is not", "B) List allows duplicates, Set does not", "C) Set is faster for lookups", "D) List can hold nulls, Set cannot"] },
+                    { q: "153. The `Comparable` interface is used to:", o: ["A) Define the natural ordering of a class", "B) Compare two different objects", "C) Create a copy of an object", "D) Mark an object for serialization"] },
+                    { q: "154. What happens when you add a duplicate to a `HashSet`?", o: ["A) It throws an exception.", "B) The new element replaces the old one.", "C) The operation is ignored and the set remains unchanged.", "D) It returns false."] },
+                    { q: "155. The `Stack` class follows which principle?", o: ["A) FIFO", "B) LIFO", "C) Random Access", "D) Sorted Order"] }
+                ],
+                answers: ["C) Collection", "B) Set", "D) Map", "B) ArrayList", "B) Not synchronized and fast", "C) Queue", "A) get(index)", "D) TreeSet", "C) Only one", "C) Static utility methods for operating on collections.", "C) Collections (e.g., Collections.synchronizedList())", "B) Traversing (looping through) a collection.", "B) hasNext()", "C) Vector", "B) 10", "C) LinkedHashSet", "B) List allows duplicates, Set does not.", "A) Define the natural ordering of a class.", "C) The operation is ignored, and the set remains unchanged.", "B) LIFO (Last-In, First-Out)"]
+            },
+            {
+                title: "Topic 8: Advanced OOP",
+                questions: [
+                    { q: "156. Method overriding is an example of:", o: ["A) Compile-time (static) polymorphism", "B) Runtime (dynamic) polymorphism", "C) Ad-hoc polymorphism", "D) It is not a form of polymorphism"] },
+                    { q: "157. Which is a requirement for method overriding?", o: ["A) The parameter list must be different.", "B) The return type must be different.", "C) The method name and parameter list must be the same.", "D) The access modifier must be more restrictive."] },
+                    { q: "158. Can a static method be overridden?", o: ["A) Yes, without any issues.", "B) No, static methods cannot be overridden. They can be re-declared (hidden).", "C) Yes, but only if the subclass method is also static.", "D) It results in a runtime error."] },
+                    { q: "159. A single interface with multiple implementations is a form of:", o: ["A) Inheritance", "B) Polymorphism", "C) Encapsulation", "D) Abstraction"] },
+                    { q: "160. What is \"upcasting\" in Java?", o: ["A) Casting a subclass reference to a superclass reference.", "B) Casting a superclass reference to a subclass reference.", "C) Casting a primitive type to an object type.", "D) Casting an object type to a primitive type."] },
+                    { q: "161. What is the output of the following code?<br><pre>class Animal { void sound() { System.out.println(\"Animal sound\"); } } \nclass Dog extends Animal { void sound() { System.out.println(\"Dog barks\"); } } \npublic class Test { \n    public static void main(String[] args) { \n        Animal a = new Dog(); \n        a.sound(); \n    } \n}</pre>", o: ["A) \"Animal sound\"", "B) \"Dog barks\"", "C) Compilation Error", "D) Runtime Error"] },
+                    { q: "162. Java supports which type of inheritance?", o: ["A) Multiple inheritance (from classes)", "B) Single and Multilevel inheritance (from classes)", "C) Hierarchical inheritance only", "D) Hybrid inheritance"] },
+                    { q: "163. Why does Java not support multiple inheritance from classes?", o: ["A) To avoid the Diamond Problem (ambiguity).", "B) Because it is too complex to implement.", "C) For performance reasons.", "D) It is supported via the inherits keyword."] },
+                    { q: "164. What is the `instanceof` operator used for?", o: ["A) To create an instance of a class.", "B) To check if an object is an instance of a particular class or interface.", "C) To compare two object instances for equality.", "D) To get the class of an object."] },
+                    { q: "165. Can you override a private method?", o: ["A) Yes, if the subclass is in the same package.", "B) No, because it is not visible to the subclass.", "C) Yes, but you must use the @Override annotation.", "D) It depends on the JVM."] },
+                    { q: "166. A class declared with the `abstract` keyword:", o: ["A) Must contain at least one abstract method.", "B) Cannot be instantiated.", "C) Cannot have a constructor.", "D) Cannot be extended."] },
+                    { q: "167. An interface can extend another interface using which keyword?", o: ["A) implements", "B) uses", "C) extends", "D) inherits"] },
+                    { q: "168. From Java 8, an interface can have:", o: ["A) Instance variables", "B) Constructors", "C) default and static methods with implementation", "D) private methods"] },
+                    { q: "169. When a subclass constructor is called, what is implicitly called first?", o: ["A) The superclass's no-argument constructor super().", "B) The current class's constructor this().", "C) The init() method of the superclass.", "D) Nothing is called implicitly."] },
+                    { q: "170. What is \"dynamic method dispatch\"?", o: ["A) Resolving method calls at compile-time.", "B) Another name for method overloading.", "C) Resolving method calls at runtime based on object type.", "D) A way to call methods in a different thread."] },
+                    { q: "171. A covariant return type allows an overriding method to have a:", o: ["A) More restrictive return type.", "B) Subclass of the original return type.", "C) Superclass of the original return type.", "D) Primitive type instead of an object type."] },
+                    { q: "172. Can an abstract class implement an interface?", o: ["A) Yes", "B) No", "C) Only if the interface is also abstract.", "D) Only if it implements all methods."] },
+                    { q: "173. What is the purpose of the `super()` call in a constructor?", o: ["A) To call a method in the superclass.", "B) To call the constructor of the superclass.", "C) To create an instance of the superclass.", "D) To access a static variable in the superclass."] },
+                    { q: "174. Which of these is a valid statement?", o: ["A) An abstract class can have non-abstract methods.", "B) An abstract class cannot have a main method.", "C) An interface can be instantiated.", "D) A final class can have abstract methods."] },
+                    { q: "175. What is the \"IS-A\" relationship related to?", o: ["A) Encapsulation", "B) Polymorphism", "C) Inheritance", "D) Composition"] }
+                ],
+                answers: ["B) Runtime (dynamic) polymorphism", "C) The method name and parameter list must be the same.", "B) No, static methods cannot be overridden. They can be re-declared (hidden).", "B) Polymorphism", "A) Casting a subclass reference to a superclass reference.", "B) \"Dog barks\" (Runtime polymorphism)", "B) Single and Multilevel inheritance (from classes)", "A) To avoid the Diamond Problem (ambiguity).", "B) To check if an object is an instance of a particular class or interface.", "B) No, because it is not visible to the subclass.", "B) Cannot be instantiated.", "C) extends", "C) default and static methods with implementation", "A) The superclass's no-argument constructor super().", "C) A mechanism where the method to be called is determined at runtime based on the object type.", "B) Subclass of the original return type.", "A) Yes", "B) To call the constructor of the superclass.", "A) An abstract class can have non-abstract methods.", "C) Inheritance"]
+            },
+            {
+                title: "Topic 9: Multithreading",
+                questions: [
+                    { q: "176. Which interface must be implemented to create a new thread?", o: ["A) Thread", "B) Runnable", "C) Callable", "D) Executable"] },
+                    { q: "177. Which method is the entry point for a new thread?", o: ["A) main()", "B) start()", "C) run()", "D) init()"] },
+                    { q: "178. What is the difference between calling start() and run()?", o: ["A) No difference.", "B) start() creates a new thread and calls run(); run() executes in the current thread.", "C) run() creates a new thread and calls start().", "D) start() is for Runnable, run() is for Thread."] },
+                    { q: "179. Keyword to prevent simultaneous access by multiple threads?", o: ["A) static", "B) volatile", "C) transient", "D) synchronized"] },
+                    { q: "180. A thread's priority is an integer between:", o: ["A) 0 and 10", "B) 1 and 10", "C) 1 and 100", "D) 0 and 1"] },
+                    { q: "181. Method to temporarily pause and allow other threads to execute?", o: ["A) sleep()", "B) wait()", "C) yield()", "D) join()"] },
+                    { q: "182. The join() method of a thread:", o: ["A) Puts the thread to sleep.", "B) Kills the thread.", "C) Waits for the thread to die (terminate).", "D) Combines two threads."] },
+                    { q: "183. What is a \"daemon\" thread?", o: ["A) A high-priority thread.", "B) A background thread that doesn't prevent JVM exit.", "C) An uninterruptible thread.", "D) A thread created by the JVM itself."] },
+                    { q: "184. `wait()` and `notify()` are defined in which class?", o: ["A) Thread", "B) Runnable", "C) Object", "D) Executors"] },
+                    { q: "185. To use `wait()`, `notify()`, a thread must own the object's:", o: ["A) Key", "B) Lock (monitor)", "C) Runnable interface", "D) Priority"] },
+                    { q: "186. What is a \"deadlock\"?", o: ["A) A thread blocked forever.", "B) Two or more threads blocked forever, waiting for each other.", "C) A terminated thread.", "D) A JVM crash."] },
+                    { q: "187. The `volatile` keyword ensures:", o: ["A) A method is synchronized.", "B) A variable's value is always read from main memory.", "C) A variable cannot be changed.", "D) A thread cannot be suspended."] },
+                    { q: "188. Which class provides a thread-safe Map?", o: ["A) HashMap", "B) Hashtable", "C) ConcurrentHashMap", "D) SynchronizedMap"] },
+                    { q: "189. The `ExecutorService` is used for:", o: ["A) Directly creating and managing threads.", "B) Managing a pool of threads.", "C) Executing SQL queries.", "D) System-level execution tasks."] },
+                    { q: "190. State of a thread after it's created but before `start()` is called?", o: ["A) RUNNABLE", "B) BLOCKED", "C) NEW", "D) TERMINATED"] },
+                    { q: "191. The sleep() method is:", o: ["A) A static method in the Thread class.", "B) An instance method in the Thread class.", "C) A method in the Object class.", "D) A method in the Runnable interface."] },
+                    { q: "192. What is thread starvation?", o: ["A) A thread is blocked indefinitely because other threads get CPU time.", "B) Two threads are waiting for each other to release a lock.", "C) A thread has completed its execution.", "D) The JVM has run out of memory for threads."] },
+                    { q: "193. The Callable interface's call() method can:", o: ["A) Return a value and throw an exception.", "B) Only throw an exception.", "C) Only return a value.", "D) Neither return a value nor throw an exception."] },
+                    { q: "194. What is a ReentrantLock?", o: ["A) A legacy synchronization mechanism.", "B) A lock that can be acquired multiple times by the same thread.", "C) A lock that cannot be re-entered.", "D) An interface for creating locks."] },
+                    { q: "195. What is the main purpose of notifyAll()?", o: ["A) To wake up a single waiting thread.", "B) To wake up all waiting threads.", "C) To put all threads to sleep.", "D) To terminate all waiting threads."] }
+                ],
+                answers: ["B) Runnable (or extending Thread)", "C) run()", "B) start() creates a new thread and calls run(), while run() executes in the current thread.", "D) synchronized", "B) 1 and 10", "C) yield()", "C) Waits for the thread to die (terminate).", "B) A thread that runs in the background and does not prevent the JVM from exiting.", "C) Object", "B) Lock (monitor)", "B) A situation where two or more threads are blocked forever, waiting for each other.", "B) That a variable's value is always read from main memory, not from a thread's cache.", "C) ConcurrentHashMap", "B) Managing a pool of threads.", "C) NEW", "A) A static method in the Thread class.", "A) A thread is blocked indefinitely because other threads are constantly being given CPU time.", "A) Return a value and throw an exception.", "B) A lock that can be acquired multiple times by the same thread.", "B) To wake up all threads that are waiting on an object's monitor."]
+            }
+        ];
+        
+        function createMcqAccordion(containerId, data) {
+            const container = document.getElementById(containerId);
+            if(!container) return;
+            data.forEach(topic => {
+                let questionsHtml = '<div class="p-6 space-y-6">';
+                topic.questions.forEach(qItem => {
+                    let optionsHtml = '<ul class="list-none space-y-1 pl-4">';
+                    qItem.o.forEach(opt => { optionsHtml += `<li>${opt}</li>`; });
+                    optionsHtml += '</ul>';
+                    questionsHtml += `<div class="bg-slate-50 p-4 rounded-lg"><p class="font-medium mb-2">${qItem.q}</p>${optionsHtml}</div>`;
+                });
+                questionsHtml += '</div>';
+                const div = document.createElement('div');
+                const button = document.createElement('button');
+                button.className = 'accordion-header';
+                button.innerHTML = `<span>${topic.title}</span><svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'accordion-content';
+                contentDiv.innerHTML = questionsHtml;
+                div.appendChild(button);
+                div.appendChild(contentDiv);
+                container.appendChild(div);
+            });
+        }
+
+        function populateAnswers(containerId, data) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            let answerHtml = '';
+            let qNum = 1;
+            data.forEach(topic => {
+                answerHtml += `<div><h4 class="text-xl font-semibold text-slate-700 mb-4">${topic.title}</h4><ol start="${qNum}" class="list-decimal list-inside space-y-2">`;
+                topic.answers.forEach(answer => { answerHtml += `<li><span class="font-bold">${answer}</span></li>`; });
+                answerHtml += `</ol></div>`;
+                qNum += topic.answers.length;
+            });
+            container.innerHTML = answerHtml;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createMcqAccordion('java-accordion-container', javaMcqsData);
+            populateAnswers('java-answers-container', javaMcqsData);
+            
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isActive = header.classList.contains('active');
+                    const section = header.closest('main');
+                    section.querySelectorAll('.accordion-header.active').forEach(openHeader => {
+                        if (openHeader !== header) {
+                            openHeader.classList.remove('active');
+                            openHeader.nextElementSibling.style.maxHeight = '0px';
+                        }
+                    });
+                    if (!isActive) {
+                        header.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        header.classList.remove('active');
+                        content.style.maxHeight = '0px';
+                    }
+                });
+            });
+
+            const toggleBtn = document.getElementById('toggle-answers-btn');
+            const answersSection = document.getElementById('answers-section');
+            toggleBtn.addEventListener('click', () => {
+                const isHidden = answersSection.classList.contains('hidden');
+                if (isHidden) {
+                    answersSection.classList.remove('hidden');
+                    toggleBtn.textContent = 'Hide All Answers';
+                    answersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    answersSection.classList.add('hidden');
+                    toggleBtn.textContent = 'Show All Answers';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
