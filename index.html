@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,86 +9,93 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f1f5f9; /* slate-100 */
+            background-color: #f8fafc; /* slate-50 */
         }
         .topic-card {
-            background-color: white;
-            border-radius: 0.75rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e2e8f0; /* slate-200 */
         }
         .topic-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
         }
     </style>
 </head>
 <body class="text-slate-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-sm">
         <nav class="container mx-auto px-6 py-4">
-            <h1 class="text-2xl font-bold text-slate-900">My Educational Hub</h1>
+            <h1 class="text-3xl font-extrabold text-slate-900">Educational Hub</h1>
         </nav>
     </header>
 
     <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-section text-white py-20 px-6">
-            <div class="container mx-auto text-center">
-                <h2 class="text-5xl font-extrabold mb-4">Welcome to Your Learning Space</h2>
-                <p class="text-xl max-w-3xl mx-auto text-indigo-100">
-                    A centralized place for all educational notes and practice questions. Study, revise, and test your knowledge from anywhere.
-                </p>
-            </div>
+    <main class="container mx-auto px-6 py-12 md:py-20">
+
+        <!-- Introduction Section -->
+        <section class="text-center mb-16 md:mb-24">
+            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">Your Centralized Learning Resource</h2>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600">
+                This website is your one-stop destination for comprehensive notes and practice questions on key technical subjects. Dive into our curated content to enhance your knowledge and prepare for exams.
+            </p>
         </section>
 
         <!-- Topics Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-6">
-                <h3 class="text-3xl font-bold text-center text-slate-900 mb-12">Explore Topics</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-                    
-                    <!-- Data Warehousing Card -->
-                    <a href="data-warehousing.html" class="topic-card block p-8 text-center shadow-lg">
-                        <div class="flex items-center justify-center mb-4 bg-indigo-100 rounded-full w-16 h-16 mx-auto">
-                            <!-- Icon: Database -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                            </svg>
-                        </div>
-                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Data Warehousing</h4>
-                        <p class="text-slate-600">Comprehensive notes on concepts, architecture, schemas, and OLAP.</p>
-                    </a>
-                    
-                    <!-- Java Card -->
-                    <a href="java-mcqs.html" class="topic-card block p-8 text-center shadow-lg">
-                        <div class="flex items-center justify-center mb-4 bg-purple-100 rounded-full w-16 h-16 mx-auto">
-                             <!-- Icon: Code -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                            </svg>
-                        </div>
-                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Java MCQs</h4>
-                        <p class="text-slate-600">Practice questions covering everything from fundamentals to advanced topics.</p>
-                    </a>
+        <section>
+            <h3 class="text-3xl font-bold text-center text-slate-800 mb-12">Explore Topics</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-                </div>
+                <!-- Data Warehousing Notes Card -->
+                <a href="data-warehousing.html" class="topic-card bg-white rounded-xl shadow-md overflow-hidden block">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 bg-indigo-100 rounded-full mr-4">
+                                <!-- Icon: Database -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-800">Data Warehousing Notes</h4>
+                        </div>
+                        <p class="text-slate-600">Access detailed, topic-wise notes on all major concepts of Data Warehousing, from architecture to OLAP.</p>
+                    </div>
+                </a>
+
+                <!-- Data Warehousing Questions Card -->
+                <a href="dwh-questions.html" class="topic-card bg-white rounded-xl shadow-md overflow-hidden block">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 bg-blue-100 rounded-full mr-4">
+                                <!-- Icon: Question Mark Circle -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-800">Data Warehousing Questions</h4>
+                        </div>
+                        <p class="text-slate-600">Test your knowledge with a set of Multiple Choice Questions on key Data Warehousing concepts.</p>
+                    </div>
+                </a>
+
+                <!-- Java MCQs Card -->
+                <a href="java-mcqs.html" class="topic-card bg-white rounded-xl shadow-md overflow-hidden block">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 bg-emerald-100 rounded-full mr-4">
+                                <!-- Icon: Code -->
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-800">Java MCQs</h4>
+                        </div>
+                        <p class="text-slate-600">Practice with a comprehensive set of Java MCQs covering everything from fundamentals to advanced topics.</p>
+                    </div>
+                </a>
+
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-800 text-slate-300">
-        <div class="container mx-auto px-6 py-4 text-center">
-            <p>&copy; 2025 Educational Hub. All rights reserved.</p>
-        </div>
-    </footer>
-
 </body>
 </html>
 
