@@ -218,6 +218,30 @@
                         </div>
                     </div>
                 `
+            },
+            {
+                title: 'Smart City - Data Lake vs Data Warehouse',
+                content: `
+                    <div class="p-6 answer-section text-slate-600 space-y-4">
+                        <div>
+                            <h4>a. Handling Diverse Data Types 🗂️</h4>
+                            <p>A key feature of a <b>data lake</b> is its ability to store all types of data in its raw, natural format. This means it can easily handle the project's mix of IoT time-series data, video files, JSON logs, and structured weather tables all in one place.</p>
+                            <p class="mt-2">This is different from a traditional data warehouse, which requires data to be cleaned, structured, and organized into a predefined format (a "schema") before it can be stored. A data warehouse would struggle to store unstructured data like video files or raw JSON logs directly.</p>
+                        </div>
+
+                        <div>
+                            <h4>b. Real-Time AI and Machine Learning 🤖</h4>
+                            <p>The capability that allows data analysts to run AI/ML models on live data is the data lake's <b>"schema-on-read"</b> approach. This means you don't have to define the data's structure when you store it; you only apply a structure when you need to analyze it ("read" it).</p>
+                            <p class="mt-2">This is vital for real-time decision-making because it eliminates the time-consuming step of pre-processing and structuring data. Analysts can immediately access and experiment with live traffic feeds and sensor data, allowing them to generate insights and make decisions in real-time without delay.</p>
+                        </div>
+
+                        <div>
+                            <h4>c. Scalability and Cost-Effectiveness 💰</h4>
+                            <p>A data lake ensures scalability and low-cost storage because it is built on <b>commodity hardware</b> (standard, inexpensive servers) and is designed to <b>scale horizontally</b>. This means that as the city's data grows, you can simply add more low-cost servers to the cluster to increase storage and processing power.</p>
+                             <p class="mt-2">This approach makes it much cheaper to store terabytes of new data daily compared to a data warehouse, which often relies on expensive, specialized hardware. This cost-effective scalability ensures the smart city project can handle massive future data growth without a huge increase in budget.</p>
+                        </div>
+                    </div>
+                `
             }
         ];
 
@@ -228,7 +252,7 @@
                 const div = document.createElement('div');
                 const button = document.createElement('button');
                 button.className = 'accordion-header';
-                button.innerHTML = `<span>${item.title}</span><svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
+                button.innerHTML = `<span>${item.title}</span><svg class="accordion-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0.0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
                 const contentDiv = document.createElement('div');
                 contentDiv.className = 'accordion-content';
                 contentDiv.innerHTML = item.content;
